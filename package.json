@@ -1,0 +1,12 @@
+{
+  "name": "performance-tests",
+  "version": "1.0.0",
+  "description": "K6 performance tests for credit offer creation",
+  "scripts": {
+    "test:uat": "k6 run -e TEST_ENV=uat src/tests/offer-performance.ts",
+    "test:ef2": "k6 run -e TEST_ENV=ef2 src/tests/offer-performance.ts"
+  },
+  "devDependencies": {
+    "@types/k6": "^1.0.0"
+  }
+}
