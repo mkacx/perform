@@ -1,6 +1,7 @@
 services:
   prometheus:
     image: prom/prometheus:latest
+    container_name: k6-prometheus
     ports:
       - "9090:9090"
     volumes:
@@ -8,15 +9,19 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--web.enable-remote-write-receiver'
+      - '--enable-feature=native-histograms'
 
   grafana:
     image: grafana/grafana:latest
+    container_name: k6-grafana
     ports:
       - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
       - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
 
 volumes:
   grafana-data:

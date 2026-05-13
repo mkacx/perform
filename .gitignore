@@ -6,3 +6,7 @@ dist/
 azure-pipelines.yml
 claude.md
 instructions.md
+
+# postman: ignore the whole folder (working files, drafts)
+# Distribution: password-protected /quickstart.zip lives at project root (tracked)
+/postman/
